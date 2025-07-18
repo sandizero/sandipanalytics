@@ -1,4 +1,4 @@
-import { Database, Code, BarChart3, PieChart, Workflow } from "lucide-react";
+import { Database, Code, BarChart3, PieChart, Workflow, FileSpreadsheet } from "lucide-react";
 
 export default function SkillsShowcase() {
   const skills = [
@@ -6,6 +6,7 @@ export default function SkillsShowcase() {
     { name: "Python", icon: Code, description: "Data Science", color: "text-primary" },
     { name: "Power BI", icon: BarChart3, description: "Business Intelligence", color: "text-primary" },
     { name: "Tableau", icon: PieChart, description: "Data Visualization", color: "text-primary" },
+    { name: "Excel", icon: FileSpreadsheet, description: "Data Analysis", color: "text-primary" },
     { name: "n8n", icon: Workflow, description: "Automation", color: "text-primary" },
   ];
 
@@ -16,7 +17,7 @@ export default function SkillsShowcase() {
           <h2 className="text-3xl font-bold text-foreground mb-4">Technical Expertise</h2>
           <p className="text-lg text-muted-foreground">Proficient in industry-leading tools and technologies</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {skills.map((skill) => {
             const IconComponent = skill.icon;
             return (
