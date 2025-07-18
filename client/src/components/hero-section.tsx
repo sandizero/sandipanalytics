@@ -15,8 +15,9 @@ export default function HeroSection({ onViewServices, onExploreWork }: HeroSecti
             Transform Your <span className="text-primary">Data</span> Into <span className="text-secondary">Insights</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
-            Professional data analyst specializing in Excel, SQL, Python, Power BI, Tableau, and n8n automation. 
-            I help businesses make data-driven decisions and streamline their processes.
+            I'm Sandip Sarkar, a professional Data Analyst specializing in Excel, SQL, Python, Power BI, and Tableau. 
+            I empower businesses to make smart, data-driven decisions through advanced analytics and machine learning models. 
+            Plus, I streamline operations with powerful n8n automation and efficient business process workflows, helping you achieve more with less.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
