@@ -70,8 +70,8 @@ export default function ServicesDetail() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-                alt="Analytics dashboard with charts and graphs" 
+                src="@assets/dashboard1_1752859538436.png" 
+                alt="Custom analytics dashboard with sales data and performance metrics" 
                 className="rounded-2xl shadow-lg w-full h-auto card-hover" 
               />
             </div>
