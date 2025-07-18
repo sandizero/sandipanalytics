@@ -11,7 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
-import { Mail, Clock, Linkedin, Github, CheckCircle } from "lucide-react";
+import { Mail, Clock, Linkedin, Github, CheckCircle, Phone } from "lucide-react";
 
 export default function ContactForm() {
   const { toast } = useToast();
@@ -175,15 +175,27 @@ export default function ContactForm() {
                     </div>
                     <div>
                       <p className="font-medium text-foreground">Email</p>
-                      <a href="mailto:hello@sandipsarkar.com" className="text-primary hover:text-primary/80 smooth-transition">
-                        hello@sandipsarkar.com
+                      <a href="mailto:sarkarsandip966@gmail.com" className="text-primary hover:text-primary/80 smooth-transition">
+                        sarkarsandip966@gmail.com
                       </a>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
-                      <Clock className="h-6 w-6 text-secondary" />
+                      <Phone className="h-6 w-6 text-secondary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Phone</p>
+                      <a href="tel:+917980544934" className="text-primary hover:text-primary/80 smooth-transition">
+                        +91 7980544934
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                      <Clock className="h-6 w-6 text-accent" />
                     </div>
                     <div>
                       <p className="font-medium text-foreground">Response Time</p>
