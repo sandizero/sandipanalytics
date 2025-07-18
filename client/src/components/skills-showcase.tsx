@@ -1,10 +1,11 @@
-import { Database, Code, BarChart3, PieChart, Workflow, FileSpreadsheet } from "lucide-react";
+import { Database, BarChart3, PieChart, Workflow, FileSpreadsheet } from "lucide-react";
+import { SiPython } from "react-icons/si";
 
 export default function SkillsShowcase() {
   const skills = [
     { name: "Excel", icon: FileSpreadsheet, description: "Data Analysis", color: "text-primary" },
     { name: "SQL", icon: Database, description: "Advanced Queries", color: "text-primary" },
-    { name: "Python", icon: Code, description: "Data Science", color: "text-primary" },
+    { name: "Python", icon: SiPython, description: "Data Science", color: "text-[#3776ab]" },
     { name: "Power BI", icon: BarChart3, description: "Business Intelligence", color: "text-primary" },
     { name: "Tableau", icon: PieChart, description: "Data Visualization", color: "text-primary" },
     { name: "n8n", icon: Workflow, description: "Automation", color: "text-primary" },
