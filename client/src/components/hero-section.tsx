@@ -40,8 +40,8 @@ export default function HeroSection({ onViewServices, onExploreWork }: HeroSecti
           </div>
           <div className="relative fade-in mt-8 lg:mt-0">
             <img 
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600" 
-              alt="Data analytics dashboard with charts and graphs" 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600" 
+              alt="Business analytics and data visualization dashboard" 
               className="rounded-2xl shadow-2xl w-full h-auto max-w-md mx-auto lg:max-w-none" 
             />
             <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg">
