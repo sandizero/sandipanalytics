@@ -21,7 +21,7 @@ Preferred communication style: Simple, everyday language.
 ### Backend Architecture
 - **Runtime**: Node.js with TypeScript
 - **Framework**: Express.js for REST API endpoints
-- **Database**: PostgreSQL with Drizzle ORM (configured but using in-memory storage)
+- **Database**: PostgreSQL with Drizzle ORM (actively using database storage)
 - **Session Management**: Prepared for PostgreSQL sessions with connect-pg-simple
 - **Validation**: Zod for schema validation and type safety
 
@@ -47,7 +47,7 @@ Preferred communication style: Simple, everyday language.
 ### Backend Components
 - **Contact API**: POST /api/contact for form submissions
 - **Contact Management**: GET /api/contacts for retrieving submissions
-- **Storage Layer**: Abstracted storage interface (currently in-memory, ready for database)
+- **Storage Layer**: DatabaseStorage implementation using PostgreSQL
 - **Error Handling**: Centralized error handling with proper HTTP status codes
 
 ## Data Flow
@@ -55,7 +55,7 @@ Preferred communication style: Simple, everyday language.
 1. **User Interaction**: Users navigate through tabs to view different sections
 2. **Form Submission**: Contact form data is validated client-side then sent to API
 3. **API Processing**: Express server validates data with Zod schema
-4. **Data Storage**: Contact information stored (currently in-memory)
+4. **Data Storage**: Contact information stored in PostgreSQL database
 5. **Response Handling**: Success/error feedback displayed via toast notifications
 6. **State Management**: TanStack Query manages server state and caching
 
