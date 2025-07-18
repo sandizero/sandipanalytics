@@ -19,11 +19,10 @@ Preferred communication style: Simple, everyday language.
 - **Build Tool**: Vite for fast development and optimized builds
 
 ### Backend Architecture
-- **Runtime**: Node.js with TypeScript
-- **Framework**: Express.js for REST API endpoints
-- **Database**: PostgreSQL with Drizzle ORM (actively using database storage)
-- **Session Management**: Prepared for PostgreSQL sessions with connect-pg-simple
-- **Validation**: Zod for schema validation and type safety
+- **Static Deployment**: Converted to static website for free hosting platforms
+- **Contact Form**: Uses mailto links instead of database storage
+- **Validation**: Zod for client-side form validation
+- **No Backend Required**: Eliminated server dependencies for free deployment
 
 ### Design System
 - **Color Palette**: Custom pastel colors (soft blues, greens, purples) defined as CSS variables
@@ -44,11 +43,11 @@ Preferred communication style: Simple, everyday language.
 - **Skills Showcase**: Technical expertise visualization
 - **Trust Indicators**: Benefits and value propositions
 
-### Backend Components
-- **Contact API**: POST /api/contact for form submissions
-- **Contact Management**: GET /api/contacts for retrieving submissions
-- **Storage Layer**: DatabaseStorage implementation using PostgreSQL
-- **Error Handling**: Centralized error handling with proper HTTP status codes
+### Static Components
+- **Contact Form**: Client-side form validation with mailto integration
+- **Asset Management**: Custom dashboard image integration
+- **Build Process**: Vite static build for deployment platforms
+- **SEO Optimization**: Meta tags and Open Graph integration
 
 ## Data Flow
 

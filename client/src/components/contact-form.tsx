@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,16 +8,24 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { insertContactSchema, type InsertContact } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
 import { Mail, Clock, Linkedin, Github, CheckCircle, Phone } from "lucide-react";
+import { z } from "zod";
+
+// Simple contact form schema without database dependency
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactForm = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
   const { toast } = useToast();
-  const queryClient = useQueryClient();
   
-  const form = useForm<InsertContact>({
-    resolver: zodResolver(insertContactSchema),
+  const form = useForm<ContactForm>({
+    resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -27,30 +34,23 @@ export default function ContactForm() {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContact) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I will get back to you within 24 hours.",
-      });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/contacts"] });
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Error sending message",
-        description: error.message || "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = (data: InsertContact) => {
-    contactMutation.mutate(data);
+  const onSubmit = (data: ContactForm) => {
+    // Create mailto link with form data
+    const mailtoUrl = `mailto:sarkarsandip966@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+    )}`;
+    
+    // Open email client
+    window.location.href = mailtoUrl;
+    
+    // Show success message
+    toast({
+      title: "Opening email client...",
+      description: "Your email client will open with the message pre-filled. Send it to complete your inquiry.",
+    });
+    
+    // Reset form
+    form.reset();
   };
 
   return (
@@ -150,11 +150,10 @@ export default function ContactForm() {
                   
                   <Button 
                     type="submit" 
-                    disabled={contactMutation.isPending}
                     className="w-full bg-primary text-primary-foreground py-3 px-6 font-semibold smooth-transition hover:bg-primary/90 hover:scale-105"
                     size="lg"
                   >
-                    {contactMutation.isPending ? "Sending..." : "Send Message"}
+                    Send Message
                     <Mail className="ml-2 h-5 w-5" />
                   </Button>
                 </form>
