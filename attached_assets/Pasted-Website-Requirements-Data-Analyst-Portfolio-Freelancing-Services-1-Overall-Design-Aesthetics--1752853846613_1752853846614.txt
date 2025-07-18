@@ -1,0 +1,83 @@
+Website Requirements: Data Analyst Portfolio & Freelancing Services
+1. Overall Design & Aesthetics
+Design Framework: Implement Material Design principles throughout the website for a clean, modern, and intuitive user experience.
+
+Color Palette: Utilize a pastel color palette that is eye-soothing and professional. Examples include soft blues, greens, lavenders, and muted grays.
+
+Transitions: Incorporate smooth and subtle transition effects for page navigation, element hover states, and content loading to enhance user engagement.
+
+Responsiveness: Ensure the website is fully responsive and displays correctly across all devices (desktop, tablet, mobile).
+
+2. Navigation & Structure
+Main Navigation Tabs:
+
+Home: The landing page providing an overview.
+
+Services: Details of your freelancing offerings.
+
+Work/Projects: Showcase of your sample projects.
+
+Testimonials: Client feedback.
+
+Contact: How clients can reach you.
+
+3. Content Sections
+3.1. Home Tab
+Hero Section: A concise and impactful introduction to you as a Data Analyst and your core value proposition. Include a strong call to action (e.g., "View Services" or "Explore My Work").
+
+Brief Overview of Services: A short summary of your main offerings with links to the "Services" page.
+
+Key Skills Showcase: Visually highlight your proficiency in SQL, Python, Power BI, Tableau, and n8n automation.
+
+Trust Indicators: Briefly mention the benefits of working with you (e.g., data-driven insights, efficiency gains).
+
+3.2. Services Tab
+Detailed Service Offerings:
+
+Data Analysis: Specify services like data cleaning, exploratory data analysis, statistical analysis, dashboard creation, report generation.
+
+Business Process Automation (n8n): Detail services related to automating workflows, integrating systems, and creating custom automations using n8n.
+
+Benefits: Clearly articulate the value and benefits clients will receive from each service.
+
+Process/Approach: Briefly describe your typical workflow or approach to projects.
+
+3.3. Work/Projects Tab
+Two Distinct Sections:
+
+Data Analytics Projects:
+
+Each project should have a dedicated card/section.
+
+Include a project title, brief description, technologies used (SQL, Python, Power BI, Tableau), and a visual representation (e.g., screenshot of a dashboard, chart).
+
+Consider a link to a live demo (if applicable) or a more detailed case study page.
+
+Business Process Automation Projects (n8n):
+
+Similar structure to Data Analytics projects.
+
+Focus on the problem solved, the automation implemented using n8n, and the measurable impact/results.
+
+Include diagrams of workflows or screenshots of n8n setups if appropriate.
+
+3.4. Testimonials Tab
+Client Testimonials: Display a selection of positive feedback from past clients.
+
+Format: Include client name (or initials), company (if applicable), and a clear quote. Consider adding a small client photo if available and permitted.
+
+3.5. Contact Tab
+Contact Form: A functional form for inquiries including fields for name, email, subject, and message.
+
+Direct Contact Information: Your professional email address.
+
+Social Media Links: Links to your professional profiles (e.g., LinkedIn, GitHub).
+
+Call to Action: Encourage visitors to get in touch for consultations or project discussions.
+
+4. Technical Considerations
+Performance: Optimize for fast loading times.
+
+SEO: Basic SEO principles (meta descriptions, alt tags for images) for discoverability.
+
+Security: Ensure basic website security measures are in place.
