@@ -1,10 +1,22 @@
-import { Database, BarChart3, PieChart, Workflow, FileSpreadsheet } from "lucide-react";
-import { SiPython } from "react-icons/si";
+import { Database, Workflow, FileSpreadsheet, BarChart3, PieChart } from "lucide-react";
+import { SiPython, SiPowerbi, SiTableau } from "react-icons/si";
 
-// Material-themed Python icon wrapper
+// Material-themed icon wrappers
 const MaterialPythonIcon = ({ className }: { className?: string }) => (
   <div className={`${className} flex items-center justify-center`}>
     <SiPython className="w-full h-full filter drop-shadow-sm" style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))' }} />
+  </div>
+);
+
+const MaterialPowerBIIcon = ({ className }: { className?: string }) => (
+  <div className={`${className} flex items-center justify-center`}>
+    <SiPowerbi className="w-full h-full filter drop-shadow-sm" style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))' }} />
+  </div>
+);
+
+const MaterialTableauIcon = ({ className }: { className?: string }) => (
+  <div className={`${className} flex items-center justify-center`}>
+    <SiTableau className="w-full h-full filter drop-shadow-sm" style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))' }} />
   </div>
 );
 
@@ -13,8 +25,8 @@ export default function SkillsShowcase() {
     { name: "Excel", icon: FileSpreadsheet, description: "Data Analysis", color: "text-primary" },
     { name: "SQL", icon: Database, description: "Advanced Queries", color: "text-primary" },
     { name: "Python", icon: MaterialPythonIcon, description: "Data Science", color: "text-primary" },
-    { name: "Power BI", icon: BarChart3, description: "Business Intelligence", color: "text-primary" },
-    { name: "Tableau", icon: PieChart, description: "Data Visualization", color: "text-primary" },
+    { name: "Power BI", icon: MaterialPowerBIIcon, description: "Business Intelligence", color: "text-primary" },
+    { name: "Tableau", icon: MaterialTableauIcon, description: "Data Visualization", color: "text-primary" },
     { name: "n8n", icon: Workflow, description: "Automation", color: "text-primary" },
   ];
 
