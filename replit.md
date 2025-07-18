@@ -1,8 +1,8 @@
-# Data Analyst Portfolio Website
+# Sandip Sarkar | Data & Automation Hub
 
 ## Overview
 
-This is a modern, responsive data analyst portfolio website built with React, TypeScript, and Express.js. The application serves as a professional showcase for data analytics services and includes functionality for client contact management. The site features a clean, Material Design-inspired interface with pastel colors and smooth transitions.
+This is a modern, responsive data analyst portfolio website built with React, TypeScript, and Express.js. The application serves as a professional showcase for Sandip Sarkar's data analytics and automation services, including functionality for client contact management. The site features a clean, Material Design-inspired interface with pastel colors and smooth transitions.
 
 ## User Preferences
 

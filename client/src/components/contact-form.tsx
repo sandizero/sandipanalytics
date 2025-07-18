@@ -175,8 +175,8 @@ export default function ContactForm() {
                     </div>
                     <div>
                       <p className="font-medium text-foreground">Email</p>
-                      <a href="mailto:hello@dataproanalytics.com" className="text-primary hover:text-primary/80 smooth-transition">
-                        hello@dataproanalytics.com
+                      <a href="mailto:hello@sandipsarkar.com" className="text-primary hover:text-primary/80 smooth-transition">
+                        hello@sandipsarkar.com
                       </a>
                     </div>
                   </div>
@@ -200,7 +200,7 @@ export default function ContactForm() {
                 <h3 className="text-xl font-bold text-foreground mb-6">Connect With Me</h3>
                 <div className="space-y-4">
                   <a 
-                    href="https://linkedin.com/in/dataproanalytics" 
+                    href="https://linkedin.com/in/sandipsarkar" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center space-x-4 p-3 rounded-lg hover:bg-muted/20 smooth-transition group"
@@ -215,7 +215,7 @@ export default function ContactForm() {
                   </a>
                   
                   <a 
-                    href="https://github.com/dataproanalytics" 
+                    href="https://github.com/sandipsarkar" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center space-x-4 p-3 rounded-lg hover:bg-muted/20 smooth-transition group"

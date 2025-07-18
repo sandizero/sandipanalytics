@@ -50,7 +50,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold text-primary mb-4">DataPro Analytics</h3>
+              <h3 className="text-2xl font-bold text-primary mb-4">Sandip Sarkar | Data & Automation Hub</h3>
               <p className="text-neutral-300 mb-4">Transforming businesses through data-driven insights and intelligent automation solutions.</p>
               <div className="flex space-x-4">
                 <a href="https://linkedin.com" className="text-neutral-400 hover:text-primary smooth-transition">
@@ -79,7 +79,7 @@ export default function Home() {
             <div>
               <h4 className="font-semibold text-white mb-4">Contact</h4>
               <ul className="space-y-2 text-neutral-300">
-                <li>hello@dataproanalytics.com</li>
+                <li>hello@sandipsarkar.com</li>
                 <li>Response within 24 hours</li>
                 <li>Free consultation available</li>
               </ul>
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-neutral-700 mt-8 pt-8 text-center text-neutral-400">
-            <p>&copy; 2024 DataPro Analytics. All rights reserved.</p>
+            <p>&copy; 2024 Sandip Sarkar | Data & Automation Hub. All rights reserved.</p>
           </div>
         </div>
       </footer>
