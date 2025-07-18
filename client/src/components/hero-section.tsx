@@ -16,7 +16,7 @@ export default function HeroSection({ onViewServices, onExploreWork }: HeroSecti
               Transform Your <span className="text-primary">Data</span> Into <span className="text-secondary">Insights</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Professional data analyst specializing in SQL, Python, Power BI, Tableau, Excel, and n8n automation. 
+              Professional data analyst specializing in Excel, SQL, Python, Power BI, Tableau, and n8n automation. 
               I help businesses make data-driven decisions and streamline their processes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
