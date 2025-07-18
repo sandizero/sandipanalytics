@@ -1,41 +1,11 @@
 import { Database, BarChart3, PieChart, Workflow, FileSpreadsheet } from "lucide-react";
-
-// Material Design Python Icon Component
-const MaterialPythonIcon = ({ className }: { className?: string }) => (
-  <svg 
-    viewBox="0 0 24 24" 
-    className={className}
-    fill="currentColor"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path 
-      d="M12 2C9.79 2 8 3.79 8 6v2H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h4v2c0 2.21 1.79 4 4 4s4-1.79 4-4v-2h4c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-2V6c0-2.21-1.79-4-4-4z"
-      fill="none"
-      stroke="currentColor"
-    />
-    <path 
-      d="M8 6c0-2.21 1.79-4 4-4s4 1.79 4 4v2h-8V6z"
-      fill="currentColor"
-      fillOpacity="0.1"
-    />
-    <path 
-      d="M16 16v2c0 2.21-1.79 4-4 4s-4-1.79-4-4v-2h8z"
-      fill="currentColor"
-      fillOpacity="0.1"
-    />
-    <circle cx="10" cy="5" r="0.5" fill="currentColor"/>
-    <circle cx="14" cy="19" r="0.5" fill="currentColor"/>
-  </svg>
-);
+import { SiPython } from "react-icons/si";
 
 export default function SkillsShowcase() {
   const skills = [
     { name: "Excel", icon: FileSpreadsheet, description: "Data Analysis", color: "text-primary" },
     { name: "SQL", icon: Database, description: "Advanced Queries", color: "text-primary" },
-    { name: "Python", icon: MaterialPythonIcon, description: "Data Science", color: "text-primary" },
+    { name: "Python", icon: SiPython, description: "Data Science", color: "text-[#3776ab]" },
     { name: "Power BI", icon: BarChart3, description: "Business Intelligence", color: "text-primary" },
     { name: "Tableau", icon: PieChart, description: "Data Visualization", color: "text-primary" },
     { name: "n8n", icon: Workflow, description: "Automation", color: "text-primary" },
