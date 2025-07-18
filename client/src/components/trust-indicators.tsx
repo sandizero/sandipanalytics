@@ -26,18 +26,18 @@ export default function TrustIndicators() {
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-secondary/10 to-accent/10">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-secondary/10 to-accent/10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center">
           {indicators.map((indicator) => {
             const IconComponent = indicator.icon;
             return (
               <div key={indicator.title} className="fade-in">
-                <div className={`w-16 h-16 ${indicator.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                  <IconComponent className={`h-8 w-8 ${indicator.iconColor}`} />
+                <div className={`w-12 sm:w-16 h-12 sm:h-16 ${indicator.bgColor} rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4`}>
+                  <IconComponent className={`h-6 sm:h-8 w-6 sm:w-8 ${indicator.iconColor}`} />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{indicator.title}</h3>
-                <p className="text-muted-foreground">{indicator.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">{indicator.title}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">{indicator.description}</p>
               </div>
             );
           })}

@@ -54,18 +54,18 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 fade-in">
-          <h1 className="text-4xl font-bold text-foreground mb-4">Get In Touch</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Ready to transform your data into actionable insights? Let's discuss your project</p>
+        <div className="text-center mb-12 sm:mb-16 fade-in">
+          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 sm:mb-4">Get In Touch</h1>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">Ready to transform your data into actionable insights? Let's discuss your project</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Form */}
           <Card className="bg-white shadow-lg border-0 fade-in">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Send Me a Message</h2>
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">Send Me a Message</h2>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField
