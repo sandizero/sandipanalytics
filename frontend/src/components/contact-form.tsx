@@ -1,0 +1,272 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useToast } from "@/hooks/use-toast";
+import { Mail, Clock, Linkedin, Github, CheckCircle, Phone } from "lucide-react";
+import { z } from "zod";
+
+// Simple contact form schema without database dependency
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactForm = z.infer<typeof contactSchema>;
+
+export default function ContactForm() {
+  const { toast } = useToast();
+  
+  const form = useForm<ContactForm>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = (data: ContactForm) => {
+    // Create mailto link with form data
+    const mailtoUrl = `mailto:sarkarsandip966@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+    )}`;
+    
+    // Open email client
+    window.location.href = mailtoUrl;
+    
+    // Show success message
+    toast({
+      title: "Opening email client...",
+      description: "Your email client will open with the message pre-filled. Send it to complete your inquiry.",
+    });
+    
+    // Reset form
+    form.reset();
+  };
+
+  return (
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16 fade-in">
+          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 sm:mb-4">Get In Touch</h1>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">Ready to transform your data into actionable insights? Let's discuss your project</p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Contact Form */}
+          <Card className="bg-white shadow-lg border-0 fade-in">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">Send Me a Message</h2>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium text-foreground">Name *</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            placeholder="Your full name"
+                            className="smooth-transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium text-foreground">Email *</FormLabel>
+                        <FormControl>
+                          <Input 
+                            {...field} 
+                            type="email"
+                            placeholder="your.email@example.com"
+                            className="smooth-transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium text-foreground">Subject *</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="smooth-transition focus:border-primary focus:ring-2 focus:ring-primary/20">
+                              <SelectValue placeholder="Select a subject" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="data-analysis">Data Analysis Project</SelectItem>
+                            <SelectItem value="automation">Business Process Automation</SelectItem>
+                            <SelectItem value="consultation">General Consultation</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium text-foreground">Message *</FormLabel>
+                        <FormControl>
+                          <Textarea 
+                            {...field} 
+                            rows={6}
+                            placeholder="Tell me about your project requirements, timeline, and any specific questions you have..."
+                            className="smooth-transition focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-primary text-primary-foreground py-3 px-6 font-semibold smooth-transition hover:bg-primary/90 hover:scale-105"
+                    size="lg"
+                  >
+                    Send Message
+                    <Mail className="ml-2 h-5 w-5" />
+                  </Button>
+                </form>
+              </Form>
+            </CardContent>
+          </Card>
+
+          {/* Contact Information */}
+          <div className="space-y-8 fade-in">
+            {/* Direct Contact */}
+            <Card className="bg-white shadow-lg border-0">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-foreground mb-6">Direct Contact</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <Mail className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Email</p>
+                      <a href="mailto:sarkarsandip966@gmail.com" className="text-primary hover:text-primary/80 smooth-transition">
+                        sarkarsandip966@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+                      <Phone className="h-6 w-6 text-secondary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Phone</p>
+                      <a href="tel:+917980544934" className="text-primary hover:text-primary/80 smooth-transition">
+                        +91 7980544934
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                      <Clock className="h-6 w-6 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Response Time</p>
+                      <p className="text-muted-foreground">Usually within 24 hours</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Social Media */}
+            <Card className="bg-white shadow-lg border-0">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-foreground mb-6">Connect With Me</h3>
+                <div className="space-y-4">
+                  <a 
+                    href="https://linkedin.com/in/sandip-sarkar-a84931260" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-4 p-3 rounded-lg hover:bg-muted/20 smooth-transition group"
+                  >
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 smooth-transition">
+                      <Linkedin className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">LinkedIn</p>
+                      <p className="text-sm text-muted-foreground">Professional network</p>
+                    </div>
+                  </a>
+                  
+                  <a 
+                    href="https://github.com/sandipsarkar" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-4 p-3 rounded-lg hover:bg-muted/20 smooth-transition group"
+                  >
+                    <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center group-hover:bg-muted/80 smooth-transition">
+                      <Github className="h-6 w-6 text-foreground" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">GitHub</p>
+                      <p className="text-sm text-muted-foreground">Code repositories</p>
+                    </div>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Call to Action */}
+            <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-0">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-foreground mb-4">Ready to Get Started?</h3>
+                <p className="text-muted-foreground mb-6">Schedule a free 30-minute consultation to discuss your data analytics and automation needs.</p>
+                <div className="space-y-3">
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <CheckCircle className="h-4 w-4 text-secondary mr-2" />
+                    Free initial consultation
+                  </div>
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <CheckCircle className="h-4 w-4 text-secondary mr-2" />
+                    Custom solution recommendations
+                  </div>
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <CheckCircle className="h-4 w-4 text-secondary mr-2" />
+                    Project timeline and pricing
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

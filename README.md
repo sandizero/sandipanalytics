@@ -23,25 +23,27 @@ A modern, responsive portfolio website for a professional Data Analyst showcasin
 
 ## 📦 Installation
 
-1. Clone the repository:
+### Frontend Setup
 ```bash
-git clone https://github.com/your-username/data-analyst-portfolio.git
-cd data-analyst-portfolio
-```
-
-2. Install dependencies:
-```bash
+cd frontend
 npm install
+npm run dev  # Starts on port 3000
 ```
 
-3. Start development server:
+### Backend Setup (Optional - for database features)
 ```bash
-npm run dev
+cd backend
+npm install
+cp ../.env.example .env  # Configure database
+npm run dev  # Starts on port 5000
 ```
 
-4. Build for production:
+### Static Deployment (Recommended)
+For free hosting, use frontend-only:
 ```bash
-npm run build
+cd frontend
+npm install
+npm run build  # Creates dist/ folder for deployment
 ```
 
 ## 🌐 Deployment
@@ -66,16 +68,23 @@ Use the included GitHub Actions workflow in `.github/workflows/deploy.yml`
 ## 📂 Project Structure
 
 ```
-├── client/                 # Frontend React application
+├── frontend/               # React frontend application
 │   ├── src/
 │   │   ├── components/     # Reusable UI components
 │   │   ├── pages/          # Page components
 │   │   ├── lib/            # Utilities and configurations
 │   │   └── hooks/          # Custom React hooks
-├── attached_assets/        # Project assets and images
-├── dist/                   # Build output directory
+│   ├── package.json        # Frontend dependencies
+│   └── vite.config.ts      # Frontend build configuration
+├── backend/                # Node.js backend server
+│   ├── index.ts            # Server entry point
+│   ├── routes.ts           # API routes
+│   ├── storage.ts          # Database layer
+│   └── package.json        # Backend dependencies
 ├── shared/                 # Shared TypeScript definitions
-└── DEPLOYMENT.md          # Detailed deployment guide
+├── attached_assets/        # Project assets and images
+├── docs/                   # Documentation
+└── .github/               # GitHub templates and workflows
 ```
 
 ## 🎨 Services Offered
