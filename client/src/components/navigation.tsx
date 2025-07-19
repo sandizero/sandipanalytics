@@ -37,22 +37,27 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
             </h1>
           </div>
           
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Chrome Tab Style */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-end">
               {navItems.map(({ label, value }) => (
-                <Button
+                <button
                   key={value}
                   onClick={() => handleTabClick(value)}
-                  variant={activeTab === value ? "default" : "ghost"}
-                  className={`px-4 py-2 text-sm font-medium smooth-transition ${
-                    activeTab === value 
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90" 
-                      : "hover:bg-primary/10 hover:text-primary"
-                  }`}
+                  className={`
+                    relative px-6 py-3 text-sm font-medium smooth-transition cursor-pointer
+                    border-b-2 border-transparent hover:border-primary/30
+                    ${activeTab === value 
+                      ? "text-primary border-primary bg-primary/5" 
+                      : "text-muted-foreground hover:text-primary"
+                    }
+                  `}
                 >
                   {label}
-                </Button>
+                  {activeTab === value && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"></div>
+                  )}
+                </button>
               ))}
             </div>
           </div>
@@ -71,21 +76,28 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
         </div>
       </div>
       
-      {/* Mobile menu */}
+      {/* Mobile menu - Chrome Tab Style */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map(({ label, value }) => (
-              <Button
+              <button
                 key={value}
                 onClick={() => handleTabClick(value)}
-                variant="ghost"
-                className={`w-full text-left justify-start px-3 py-2 text-base font-medium ${
-                  activeTab === value ? "bg-primary/10 text-primary" : "hover:bg-primary/5"
-                }`}
+                className={`
+                  relative w-full text-left px-4 py-3 text-base font-medium smooth-transition
+                  border-l-4 border-transparent hover:border-primary/30
+                  ${activeTab === value 
+                    ? "text-primary border-primary bg-primary/5" 
+                    : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                  }
+                `}
               >
                 {label}
-              </Button>
+                {activeTab === value && (
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+                )}
+              </button>
             ))}
           </div>
         </div>
